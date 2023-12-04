@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Code Validator</title>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/iamludal/twemoji-awesome/master/twemoji-awesome.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://i.ibb.co/GQG9rDZ/4229159-screenshot2023-12-02121556.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333; /* Dark text */
+            line-height: 1.6;
+            transition: margin-left 0.5s; /* Transition for side navigation */
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(52, 152, 219, 0.8); /* Semi-transparent blue background color */
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: capitalize;
+            color: #fff; /* White text */
+        }
+
+        .validator-section {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent light background color */
+            border: 1px solid rgba(221, 221, 221, 0.8); /* Semi-transparent border */
+            border-radius: 10px;
+            overflow: visible; /* Updated to allow overflow */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            background-color: rgba(52, 152, 219, 0.8); /* Semi-transparent blue background color */
+            color: #fff; /* White text */
+            padding: 10px;
+            margin: 0;
+            text-transform: capitalize; /* Automatically capitalize text in titles */
+        }
+
+        .validator-result {
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .valid {
+            color: #4CAF50; /* Green text for valid */
+            font-weight: bold;
+        }
+
+        .invalid {
+            color: #FF0000; /* Red text for invalid */
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc; /* Light border */
+            border-radius: 5px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgba(52, 152, 219, 0.8); /* Semi-transparent blue background */
+            color: #fff; /* White text */
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, transform 0.5s ease-in-out; /* Added transition for rotation */
+        }
+
+        input:focus,
+        button:focus {
+            outline: none;
+            border-color: #3498db; /* Highlight border on focus */
+        }
+
+        button:hover {
+            background-color: rgba(52, 152, 219, 1); /* Solid blue background on hover */
+        }
+
+        /* Side Navigation */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left 0.5s;
+            padding: 16px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Side Navigation -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <!-- Home link to index.html -->
+        <a href="index.html">Home</a>
+        <!-- Add your subdirectories or links here -->
+        <a href="#">Subpage 1</a>
+        <a href="#">Subpage 2</a>
+        <a href="#">Subpage 3</a>
+    </div>
+
+    <!-- Main content -->
+    <div id="main">
+        <header>
+            Fortnite Creator Code Validator
+            <span id="menuButton" style="font-size:30px;cursor:pointer" onclick="toggleNav()">&#9776; </span>
+        </header>
+
+        <div class="validator-section">
+            <h2>Validator</h2>
+
+            <div>
+                <label for="creatorCode">Enter Creator Code:</label>
+                <input type="text" id="creatorCode" placeholder="Enter Creator Code" onkeydown="if (event.key === 'Enter') validateCode()" />
+                <button onclick="validateCode(); toggleNavButton()">Validate</button>
+            </div>
+
+            <div id="result" class="validator-result"></div>
+        </div>
+    </div>
+
+    <script>
+        function validateCode() {
+            const creatorCode = document.getElementById('creatorCode').value;
+            const resultDiv = document.getElementById('result');
+
+            if (creatorCode) {
+                fetch(`https://fortnite-api.com/v2/creatorcode?name=${encodeURIComponent(creatorCode)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 200 && data.data.status === 'ACTIVE') {
+                            resultDiv.innerHTML = `<p class="valid">VALID - ${data.data.account.name}</p>`;
+                        } else {
+                            resultDiv.innerHTML = `<p class="invalid">INVALID</p>`;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error validating Creator Code:', error);
+                        resultDiv.innerHTML = `<p class="invalid">ERROR</p>`;
+                    });
+            } else {
+                resultDiv.innerHTML = `<p class="invalid">Please enter a Creator Code</p>`;
+            }
+        }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
+
+        function toggleNav() {
+            const sideNav = document.getElementById("mySidenav");
+            sideNav.style.width = sideNav.style.width === "250px" ? "0" : "250px";
+            document.getElementById("main").style.marginLeft = sideNav.style.width === "250px" ? "250px" : "0";
+        }
+
+        function toggleNavButton() {
+            const menuButton = document.getElementById("menuButton");
+            menuButton.style.transform = menuButton.style.transform === "rotate(90deg)" ? "rotate(0deg)" : "rotate(90deg)";
+        }
+    </script>
+</body>
+
+</html>
