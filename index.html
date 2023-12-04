@@ -94,6 +94,11 @@
     </div>
 
     <script>
+        // Function to remove query parameters from image URLs
+        function removeQueryParameters(url) {
+            return url.split('?')[0];
+        }
+
         // Fetch Fortnite news from the API
         fetch('https://fortnite-api.com/v2/news')
             .then(response => response.json())
@@ -111,7 +116,7 @@
                             articleElement.className = 'news-article';
                             articleElement.innerHTML = `
                                 <h2>${article.title}</h2>
-                                <img src="${article.image}" alt="${article.title}">
+                                <img src="${removeQueryParameters(article.image)}" alt="${article.title}">
                                 <div class="description-container">
                                     <p>${article.body}</p>
                                 </div>
@@ -127,6 +132,7 @@
                             articleElement.className = 'news-article';
                             articleElement.innerHTML = `
                                 <h2>${article.title}</h2>
+                                <img src="${removeQueryParameters(article.image)}" alt="${article.title}">
                                 <div class="description-container">
                                     <p>${article.body}</p>
                                 </div>
