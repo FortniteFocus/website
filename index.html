@@ -64,12 +64,6 @@
             background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for text */
             color: #333; /* Text color for better readability */
         }
-
-        .save-the-world-news {
-            background-color: #ecf0f1; /* Light gray background for Save the World news */
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
-        }
     </style>
 </head>
 <body>
@@ -80,12 +74,10 @@
     <div class="news-section">
         <h2>News</h2>
 
-        <div id="news-container"></div>
-        
-        <div class="save-the-world-news">
-            <h2>Save the World News</h2>
-            <!-- Include Save the World news here if available -->
-        </div>
+        <div id="battle-royale-news-container"></div>
+
+        <h2>Save the World News</h2>
+        <div id="save-the-world-news-container"></div>
     </div>
 
     <script>
@@ -93,26 +85,45 @@
         fetch('https://fortnite-api.com/v2/news')
             .then(response => response.json())
             .then(data => {
-                const newsContainer = document.getElementById('news-container');
+                const battleRoyaleNewsContainer = document.getElementById('battle-royale-news-container');
+                const saveTheWorldNewsContainer = document.getElementById('save-the-world-news-container');
 
                 if (data.status === 200) {
-                    const newsData = data.data.br; // Assuming you want Battle Royale news
+                    const newsData = data.data; // Assuming you want both Battle Royale and Save the World news
 
-                    // Display news articles
-                    newsData.motds.forEach(article => {
-                        const articleElement = document.createElement('div');
-                        articleElement.className = 'news-article';
-                        articleElement.innerHTML = `
-                            <h2>${article.title}</h2>
-                            <img src="${article.image}" alt="${article.title}">
-                            <div class="description-container">
-                                <p>${article.body}</p>
-                            </div>
-                        `;
-                        newsContainer.appendChild(articleElement);
-                    });
+                    // Display Battle Royale news articles
+                    if (newsData.br) {
+                        newsData.br.motds.forEach(article => {
+                            const articleElement = document.createElement('div');
+                            articleElement.className = 'news-article';
+                            articleElement.innerHTML = `
+                                <h2>${article.title}</h2>
+                                <img src="${article.image}" alt="${article.title}">
+                                <div class="description-container">
+                                    <p>${article.body}</p>
+                                </div>
+                            `;
+                            battleRoyaleNewsContainer.appendChild(articleElement);
+                        });
+                    }
+
+                    // Display Save the World news articles
+                    if (newsData.stw && newsData.stw.messages) {
+                        newsData.stw.messages.forEach(article => {
+                            const articleElement = document.createElement('div');
+                            articleElement.className = 'news-article';
+                            articleElement.innerHTML = `
+                                <h2>${article.title}</h2>
+                                <div class="description-container">
+                                    <p>${article.body}</p>
+                                </div>
+                            `;
+                            saveTheWorldNewsContainer.appendChild(articleElement);
+                        });
+                    }
                 } else {
-                    newsContainer.innerHTML = '<p>Failed to fetch Fortnite news.</p>';
+                    battleRoyaleNewsContainer.innerHTML = '<p>Failed to fetch Battle Royale news.</p>';
+                    saveTheWorldNewsContainer.innerHTML = '<p>Failed to fetch Save the World news.</p>';
                 }
             })
             .catch(error => {
