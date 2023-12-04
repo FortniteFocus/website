@@ -10,24 +10,26 @@
             font-family: Arial, sans-serif;
         }
 
-        #news-container {
+        .news-article {
             background-size: cover;
             background-position: center;
             height: 300px; /* Adjust the height as needed */
             padding: 20px;
             color: #fff; /* Text color for better readability */
+            margin-bottom: 20px; /* Add some space between news articles */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add text shadow for better readability */
         }
 
-        #news-container h2 {
+        .news-article h2 {
             font-size: 24px;
             margin-bottom: 10px;
         }
 
-        #news-container p {
+        .news-article p {
             font-size: 16px;
         }
 
-        #news-container img {
+        .news-article img {
             max-width: 100%; /* Make sure the image doesn't exceed the container width */
             display: block;
             margin-top: 10px; /* Add some space between text and image */
@@ -50,6 +52,7 @@
                     // Display news articles
                     newsData.motds.forEach(article => {
                         const articleElement = document.createElement('div');
+                        articleElement.className = 'news-article';
                         articleElement.style.backgroundImage = `url('${article.image}')`;
                         articleElement.innerHTML = `
                             <h2>${article.title}</h2>
