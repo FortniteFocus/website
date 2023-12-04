@@ -27,22 +27,42 @@
         }
 
         .navbar {
-            background-color: #333; /* Dark background color */
-            overflow: hidden;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
         }
 
         .navbar a {
-            float: left;
-            display: block;
-            color: #f2f2f2; /* Light text color */
-            text-align: center;
-            padding: 14px 16px;
+            padding: 8px 8px 8px 32px;
             text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
         }
 
         .navbar a:hover {
-            background-color: #ddd; /* Darker background color on hover */
-            color: black;
+            color: #f1f1f1;
+        }
+
+        .navbar .closebtn {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left 0.5s;
+            padding: 16px;
         }
 
         .news-section {
@@ -104,10 +124,13 @@
 
     <header>
         Fortnite Focus
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
     </header>
 
     <!-- Navbar -->
-    <div class="navbar">
+    <div id="mySidenav" class="navbar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="validator.html">Creator Code Validator</a>
         <a href="index.html">Home</a>
         <a href="#">News</a>
         <a href="#">About</a>
@@ -167,6 +190,16 @@
             .catch(error => {
                 console.error('Error fetching Fortnite news:', error);
             });
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
     </script>
 </body>
 
