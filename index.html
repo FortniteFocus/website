@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,19 +18,36 @@
         header {
             text-align: center;
             padding: 20px;
-            background-color: #3498db; /* Blue background color */
+            background-color: #3498db;
+            /* Blue background color */
             color: #fff;
             font-size: 32px;
             font-weight: bold;
-            text-transform: capitalize; /* Automatically capitalize text in titles */
+            text-transform: capitalize;
+            /* Automatically capitalize text in titles */
         }
 
         .under-construction {
             text-align: center;
             padding: 10px;
-            background-color: #3498db; /* Blue background color */
+            background-color: #3498db;
+            /* Blue background color */
             color: #fff;
             font-size: 18px;
+            animation: bounce 1s infinite;
+            /* Bouncing animation */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
         }
 
         .news-section {
@@ -39,37 +57,53 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Box shadow for a subtle lift */
         }
 
         h2 {
-            background-color: #3498db; /* Blue background color for headers */
+            background-color: #3498db;
+            /* Blue background color for headers */
             color: #fff;
             padding: 10px;
             margin: 0;
-            text-transform: capitalize; /* Automatically capitalize text in titles */
+            text-transform: capitalize;
+            /* Automatically capitalize text in titles */
         }
 
         .news-article {
             display: flex;
             flex-direction: column;
             height: 100%;
-            background-color: #ecf0f1; /* Light gray background color for news articles */
-            border-bottom: 1px solid #ddd; /* Add a border between articles */
+            background-color: #ecf0f1;
+            /* Light gray background color for news articles */
+            border-bottom: 1px solid #ddd;
+            /* Add a border between articles */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .news-article:hover {
+            transform: scale(1.05);
+            /* Zoom in effect on hover */
         }
 
         .news-article h2 {
             font-size: 24px;
             margin: 10px;
-            color: #333; /* Title text color */
-            text-transform: capitalize; /* Automatically capitalize text in titles */
+            color: #333;
+            /* Title text color */
+            text-transform: capitalize;
+            /* Automatically capitalize text in titles */
         }
 
         .news-article .description-container {
             padding: 10px;
-            flex-grow: 1; /* Allow the description to grow and take remaining space */
-            color: #333; /* Text color for better readability */
-            font-family: 'Roboto', sans-serif; /* Use Roboto font for descriptions */
+            flex-grow: 1;
+            /* Allow the description to grow and take remaining space */
+            color: #333;
+            /* Text color for better readability */
+            font-family: 'Roboto', sans-serif;
+            /* Use Roboto font for descriptions */
         }
 
         .news-article img {
@@ -83,6 +117,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="under-construction">
         🚧 Website Under Construction 🚧
@@ -99,7 +134,7 @@
         <div id="battle-royale-news-container"></div>
 
         <h2>Save the World News</h2>
-        
+
         <!-- Save the World News Container -->
         <div id="save-the-world-news-container"></div>
     </div>
@@ -172,4 +207,5 @@
             });
     </script>
 </body>
+
 </html>
