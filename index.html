@@ -13,25 +13,13 @@
         .news-article {
             position: relative;
             height: 300px; /* Adjust the height as needed */
-            padding: 20px;
-            color: #fff; /* Text color for better readability */
             margin-bottom: 20px; /* Add some space between news articles */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add text shadow for better readability */
+            overflow: hidden; /* Hide overflow from absolutely positioned elements */
         }
 
         .news-article h2 {
             font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .news-article p {
-            font-size: 16px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for text */
+            margin: 10px 0;
         }
 
         .news-article img {
@@ -44,6 +32,16 @@
             right: 0;
             bottom: 0;
             z-index: -1; /* Ensure the image is behind the text */
+        }
+
+        .news-article .description-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for text */
+            color: #fff; /* Text color for better readability */
         }
     </style>
 </head>
@@ -67,7 +65,9 @@
                         articleElement.innerHTML = `
                             <h2>${article.title}</h2>
                             <img src="${article.image}" alt="${article.title}">
-                            <p>${article.body}</p>
+                            <div class="description-container">
+                                <p>${article.body}</p>
+                            </div>
                         `;
                         newsContainer.appendChild(articleElement);
                     });
