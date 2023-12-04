@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fortnite News</title>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/iamludal/twemoji-awesome/master/twemoji-awesome.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         body {
             margin: 0;
@@ -19,6 +21,7 @@
             color: #fff;
             font-size: 32px;
             font-weight: bold;
+            text-transform: capitalize; /* Automatically capitalize text in titles */
         }
 
         .under-construction {
@@ -44,31 +47,39 @@
             color: #fff;
             padding: 10px;
             margin: 0;
+            text-transform: capitalize; /* Automatically capitalize text in titles */
         }
 
         .news-article {
-            position: relative;
-            height: 300px; /* Adjust the height as needed */
-            margin-bottom: 20px; /* Add some space between news articles */
-            overflow: hidden; /* Hide overflow from absolutely positioned elements */
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             background-color: #ecf0f1; /* Light gray background color for news articles */
+            border-bottom: 1px solid #ddd; /* Add a border between articles */
         }
 
         .news-article h2 {
             font-size: 24px;
             margin: 10px;
             color: #333; /* Title text color */
-        }
-
-        .news-article img {
-            max-width: 100%; /* Make sure the image doesn't exceed the container width */
-            height: auto; /* Maintain aspect ratio */
-            display: block;
+            text-transform: capitalize; /* Automatically capitalize text in titles */
         }
 
         .news-article .description-container {
             padding: 10px;
+            flex-grow: 1; /* Allow the description to grow and take remaining space */
             color: #333; /* Text color for better readability */
+            font-family: 'Roboto', sans-serif; /* Use Roboto font for descriptions */
+        }
+
+        .news-article img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Set text color to white for text with a background color other than white */
+        .news-article h2 {
+            color: #fff;
         }
     </style>
 </head>
@@ -123,9 +134,11 @@
                             articleElement.className = 'news-article';
                             articleElement.innerHTML = `
                                 <h2>${article.title}</h2>
-                                <img src="${removeQueryParameters(article.image)}" alt="${article.title}">
                                 <div class="description-container">
                                     <p>${article.body}</p>
+                                </div>
+                                <div class="image-container">
+                                    <img src="${removeQueryParameters(article.image)}" alt="${article.title}">
                                 </div>
                             `;
                             battleRoyaleNewsContainer.appendChild(articleElement);
@@ -139,9 +152,11 @@
                             articleElement.className = 'news-article';
                             articleElement.innerHTML = `
                                 <h2>${article.title}</h2>
-                                <img src="${removeQueryParameters(article.image)}" alt="${article.title}">
                                 <div class="description-container">
                                     <p>${article.body}</p>
+                                </div>
+                                <div class="image-container">
+                                    <img src="${removeQueryParameters(article.image)}" alt="${article.title}">
                                 </div>
                             `;
                             saveTheWorldNewsContainer.appendChild(articleElement);
