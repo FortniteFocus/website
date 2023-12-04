@@ -53,7 +53,6 @@
                     newsData.motds.forEach(article => {
                         const articleElement = document.createElement('div');
                         articleElement.className = 'news-article';
-                        articleElement.style.backgroundImage = `url('${article.image}')`;
                         articleElement.innerHTML = `
                             <h2>${article.title}</h2>
                             <p>${article.body}</p>
