@@ -7,7 +7,27 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .news-section {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .news-article {
@@ -20,6 +40,7 @@
         .news-article h2 {
             font-size: 24px;
             margin: 10px 0;
+            color: #333; /* Title text color */
         }
 
         .news-article img {
@@ -40,13 +61,32 @@
             left: 0;
             right: 0;
             padding: 10px;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for text */
-            color: #fff; /* Text color for better readability */
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for text */
+            color: #333; /* Text color for better readability */
+        }
+
+        .save-the-world-news {
+            background-color: #ecf0f1; /* Light gray background for Save the World news */
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
-    <div id="news-container"></div>
+    <header>
+        Fortnite Focus
+    </header>
+
+    <div class="news-section">
+        <h2>News</h2>
+
+        <div id="news-container"></div>
+        
+        <div class="save-the-world-news">
+            <h2>Save the World News</h2>
+            <!-- Include Save the World news here if available -->
+        </div>
+    </div>
 
     <script>
         // Fetch Fortnite news from the API
