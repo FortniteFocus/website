@@ -13,52 +13,32 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: url('https://i.ibb.co/GQG9rDZ/4229159-screenshot2023-12-02121556.png') no-repeat center center fixed;
             background-size: cover;
-            color: #fff;
+            color: rgba(255, 255, 255, 0.9); /* Semi-transparent white text */
             line-height: 1.6;
         }
 
         header {
             text-align: center;
             padding: 20px;
-            background-color: #3498db; /* Blue background color */
+            background-color: rgba(52, 152, 219, 0.8); /* Semi-transparent blue background color */
             font-size: 32px;
             font-weight: bold;
             text-transform: capitalize;
         }
 
-        .under-construction {
-            text-align: center;
-            padding: 10px;
-            background-color: #3498db; /* Blue background color */
-            font-size: 18px;
-            animation: bounce 1s infinite; /* Bouncing animation */
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-20px);
-            }
-            60% {
-                transform: translateY(-10px);
-            }
-        }
-
         .news-section {
             max-width: 800px;
             margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.7); /* Light background color with opacity */
-            border: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent light background color */
+            border: 1px solid rgba(221, 221, 221, 0.8); /* Semi-transparent border */
             border-radius: 10px;
             overflow: visible; /* Updated to allow overflow */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
         }
 
         h2 {
-            background-color: #3498db; /* Blue background color for headers */
-            color: #fff;
+            background-color: rgba(52, 152, 219, 0.8); /* Semi-transparent blue background color */
+            color: rgba(255, 255, 255, 0.9); /* Semi-transparent white text */
             padding: 10px;
             margin: 0;
             text-transform: capitalize; /* Automatically capitalize text in titles */
@@ -67,8 +47,8 @@
         .news-article {
             display: flex;
             flex-direction: column;
-            background-color: #ecf0f1; /* Light gray background color for news articles */
-            border-bottom: 1px solid #ddd; /* Add a border between articles */
+            background-color: rgba(236, 240, 241, 0.9); /* Semi-transparent light gray background color */
+            border-bottom: 1px solid rgba(221, 221, 221, 0.8); /* Semi-transparent border */
             transition: transform 0.3s ease-in-out;
             margin-bottom: 10px; /* Added margin to separate articles */
         }
@@ -80,14 +60,14 @@
         .news-article h2 {
             font-size: 24px;
             margin: 10px;
-            color: #333; /* Title text color */
+            color: rgba(51, 51, 51, 0.9); /* Semi-transparent title text color */
             text-transform: capitalize; /* Automatically capitalize text in titles */
         }
 
         .news-article .description-container {
             padding: 10px;
             flex-grow: 1; /* Allow the description to grow and take remaining space */
-            color: #333; /* Text color for better readability */
+            color: rgba(51, 51, 51, 0.9); /* Semi-transparent text color for better readability */
             font-family: 'Roboto', sans-serif; /* Use Roboto font for descriptions */
         }
 
@@ -95,18 +75,13 @@
             max-width: 100%;
             height: auto;
         }
-
-        /* Set text color to white for text with a background color other than white */
-        .news-article h2 {
-            color: #fff;
-        }
     </style>
 </head>
 
 <body>
-    <div class="under-construction">
-        🚧 Website Under Construction 🚧
-    </div>
+    <marquee class="under-construction" behavior="scroll" direction="left" loop="infinite">
+        🚧 Website Under Construction 🚧 🚧 Website Under Construction 🚧 🚧 Website Under Construction 🚧
+    </marquee>
 
     <header>
         Fortnite Focus
