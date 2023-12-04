@@ -52,33 +52,23 @@
             height: 300px; /* Adjust the height as needed */
             margin-bottom: 20px; /* Add some space between news articles */
             overflow: hidden; /* Hide overflow from absolutely positioned elements */
+            background-color: #ecf0f1; /* Light gray background color for news articles */
         }
 
         .news-article h2 {
             font-size: 24px;
-            margin: 10px 0;
+            margin: 10px;
             color: #333; /* Title text color */
         }
 
         .news-article img {
             max-width: 100%; /* Make sure the image doesn't exceed the container width */
-            height: 100%; /* Ensure the image fills the container height */
-            object-fit: cover; /* Maintain aspect ratio and cover the container */
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1; /* Ensure the image is behind the text */
+            height: auto; /* Maintain aspect ratio */
+            display: block;
         }
 
         .news-article .description-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
             padding: 10px;
-            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for text */
             color: #333; /* Text color for better readability */
         }
     </style>
