@@ -26,6 +26,25 @@
             text-transform: capitalize;
         }
 
+        .navbar {
+            background-color: #333; /* Dark background color */
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2; /* Light text color */
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd; /* Darker background color on hover */
+            color: black;
+        }
+
         .news-section {
             max-width: 800px;
             margin: 20px auto;
@@ -86,6 +105,14 @@
     <header>
         Fortnite Focus
     </header>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#">News</a>
+        <a href="#">About</a>
+        <!-- Add more links as needed -->
+    </div>
 
     <div class="news-section">
         <h2>News</h2>
