@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fortnite News</title>
-    <link rel="stylesheet" href="https://twemoji.maxcdn.com/v/latest/twemoji-awesome.css" />
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/iamludal/twemoji-awesome/master/twemoji-awesome.css" />
     <style>
         body {
             margin: 0;
@@ -94,6 +94,13 @@
     </div>
 
     <script>
+        // Ensure Twemoji library is loaded
+        if (typeof twemoji === 'undefined') {
+            const twemojiScript = document.createElement('script');
+            twemojiScript.src = 'https://twemoji.maxcdn.com/v/latest/twemoji-awesome.js';
+            document.head.appendChild(twemojiScript);
+        }
+
         // Function to remove query parameters from image URLs
         function removeQueryParameters(url) {
             return url.split('?')[0];
