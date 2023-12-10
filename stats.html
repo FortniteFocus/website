@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fornite Focus</title>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/iamludal/twemoji-awesome/master/twemoji-awesome.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url("https://cdn2.unrealengine.com/junoepicnewsroom-inline-1920x1080-1920x1080-11ac1cc34159.jpg")
+          no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            /* Dark text */
+            line-height: 1.6;
+            transition: margin-left 0.5s;
+            /* Transition for side navigation */
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(52, 152, 219, 0.8);
+            /* Semi-transparent blue background color */
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: capitalize;
+            color: #fff;
+            /* White text */
+        }
+
+        .validator-section {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Semi-transparent light background color */
+            border: 1px solid rgba(221, 221, 221, 0.8);
+            /* Semi-transparent border */
+            border-radius: 10px;
+            overflow: visible;
+            /* Updated to allow overflow */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Box shadow for a subtle lift */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            background-color: rgba(52, 152, 219, 0.8);
+            /* Semi-transparent blue background color */
+            color: #fff;
+            /* White text */
+            padding: 10px;
+            margin: 0;
+            text-transform: capitalize;
+            /* Automatically capitalize text in titles */
+        }
+
+        .validator-result {
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .valid {
+            color: #4CAF50;
+            /* Green text for valid */
+            font-weight: bold;
+        }
+
+        .invalid {
+            color: #FF0000;
+            /* Red text for invalid */
+            font-weight: bold;
+        }
+
+        select {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            /* Light border */
+            border-radius: 5px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            /* Light border */
+            border-radius: 5px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgba(52, 152, 219, 0.8);
+            /* Semi-transparent blue background */
+            color: #fff;
+            /* White text */
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, transform 0.5s ease-in-out;
+            /* Added transition for rotation */
+        }
+
+        select:focus,
+        input:focus,
+        button:focus {
+            outline: none;
+            border-color: #3498db;
+            /* Highlight border on focus */
+        }
+
+        button:hover {
+            background-color: rgba(52, 152, 219, 1);
+            /* Solid blue background on hover */
+        }
+
+        /* Side Navigation */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left 0.5s;
+            padding: 16px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        .navbar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .navbar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #f1f1f1;
+        }
+
+        .navbar .closebtn {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <marquee class="under-construction" behavior="scroll" direction="left" loop="infinite">
+        🚧 Web in development 🚧 🚧 Web in development 🚧 🚧  Web in development 🚧
+    </marquee>
+    <div id="mySidenav" class="navbar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="#">News</a>
+        <a href="validator.html">Creator Code Validator</a>
+        <a href="stats.html">Stats</a>
+        <a href="shop.html">Shop</a>
+    </div>
+
+    <div class="stats-section">
+        <h2>Player's Stats</h2>
+
+        <div id="battle-royale-stats-container"></div>
+    </div>
+
+    <div id="main">
+        <header>
+            Fortnite Stats
+            <span id="menuButton" style="font-size:30px;cursor:pointer" onclick="toggleNav()">&#9776; </span>
+        </header>
+
+        <div class="validator-section">
+            <h2>Fornite Focus</h2>
+
+            <div>
+                <label for="playerName">Enter Player name:</label>
+                <input type="text" id="playerName" placeholder="Enter Player Name"><br></br>
+                <label for="playerName">Select Plataform</label>
+                <select name="accountType" id="accountType">
+                        <option value="epic">Epic</option>
+                        <option value="xbl">Xbox</option>
+                        <option value="psn">Playstation</option>
+                </select>
+                <button onclick="checkStats(); toggleNavButton()">Search</button>
+            </div>
+
+            <div id="result" class="validator-result"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkStats() {
+
+            const name = document.getElementById('playerName').value;
+            const accountType = document.getElementById('accountType').value;
+            const resultDiv = document.getElementById('result');
+
+            if (name) {
+                const auth_key = "f28a9e60-ba37-4112-8afd-a823e4c9ac2e"
+                headers = { "Authorization": auth_key }
+
+                fetch(`https://fortnite-api.com/v2/stats/br/v2?name=${name}&accountType=${accountType}&image=all`, {
+                    headers: headers,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 403) {
+                            resultDiv.innerHTML = `<p class="invalid">Error. This fortnite account is privated.</p>`;
+                            return;
+                        }
+                        if (data.status === 404) {
+                            resultDiv.innerHTML = `<p class="invalid">Error. Please give a valid fortnite account</p>`;
+                            return;
+                        } 
+                        const overall_stats = data.data.stats.all.overall
+                        const wins = overall_stats.wins
+                        const kills = overall_stats.kills
+                        const kd = overall_stats.kd
+                        const matches = overall_stats.matches
+                        const winRate = overall_stats.winRate
+                        const playersoutLived = overall_stats.playersOutlived
+                        const top25 = overall_stats.top25
+                        const top10 = overall_stats.top10
+                        const top5 = overall_stats.top5
+                        const top3 = overall_stats.top3
+                        const level = data.data.battlePass.level
+
+                        const stats = `Level: ${level}<br></br>Matches: ${matches}<br></br>Wins: ${wins}<br></br>Kills: ${kills}<br></br>Kd: ${kd}<br></br>Win Rate: ${winRate}<br></br>Players OutLived: ${playersoutLived}<br></br>Top 25: ${top25}<br></br>Top 10: ${top10}<br></br>Top 5: ${top5}<br></br>Top 3: ${top3}`
+                        resultDiv.innerHTML = `<p class="invalid">${stats}</p>`;
+                    })
+                    .catch(error => {
+                        console.error('Error validating Creator Code:', error);
+                        resultDiv.innerHTML = `<p class="invalid">ERROR</p>`;
+                    });
+            } else {
+                console.log(name, account_type)
+                resultDiv.innerHTML = `<p class="invalid">Please enter a Player Name</p>`;
+            }
+        }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+
+        function toggleNav() {
+            const sideNav = document.getElementById("mySidenav");
+            sideNav.style.width = sideNav.style.width === "250px" ? "0" : "250px";
+            document.getElementById("main").style.marginLeft = sideNav.style.width === "250px" ? "250px" : "0";
+        }
+
+        function toggleNavButton() {
+            const menuButton = document.getElementById("menuButton");
+            menuButton.style.transform = menuButton.style.transform === "rotate(90deg)" ? "rotate(0deg)" : "rotate(90deg)";
+        }
+    </script>
+</body>
+
+</html>
