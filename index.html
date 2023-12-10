@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortnite News</title>
+    <title>Fornite Focus</title>
     <link rel="stylesheet" href="https://raw.githubusercontent.com/iamludal/twemoji-awesome/master/twemoji-awesome.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('https://i.ibb.co/GQG9rDZ/4229159-screenshot2023-12-02121556.png') no-repeat center center fixed;
-            background-size: cover;
+            background: url("https://cdn2.unrealengine.com/junoepicnewsroom-inline-1920x1080-1920x1080-11ac1cc34159.jpg")
+          no-repeat center center fixed;            background-size: cover;
             color: rgba(255, 255, 255, 0.9); /* Semi-transparent white text */
             line-height: 1.6;
         }
@@ -119,7 +119,7 @@
 
 <body>
     <marquee class="under-construction" behavior="scroll" direction="left" loop="infinite">
-        🚧 Website Under Construction 🚧 🚧 Website Under Construction 🚧 🚧 Website Under Construction 🚧
+        🚧 Web in development 🚧 🚧 Web in development 🚧 🚧  Web in development 🚧
     </marquee>
 
     <header>
@@ -130,10 +130,11 @@
     <!-- Navbar -->
     <div id="mySidenav" class="navbar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="validator.html">Creator Code Validator</a>
         <a href="index.html">Home</a>
         <a href="#">News</a>
-        <a href="#">About</a>
+        <a href="validator.html">Creator Code Validator</a>
+        <a href="stats.html">Stats</a>
+        <a href="shop.html">Shop</a>
         <!-- Add more links as needed -->
     </div>
 
@@ -158,7 +159,7 @@
         }
 
         // Fetch Fortnite news from the API
-        fetch('https://fortnite-api.com/v2/news')
+        fetch('https://fortnite-api.com/v2/news?language=en')
             .then(response => response.json())
             .then(data => {
                 const battleRoyaleNewsContainer = document.getElementById('battle-royale-news-container');
@@ -201,6 +202,43 @@
             document.getElementById("main").style.marginLeft= "0";
         }
     </script>
+    <script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 
 </html>
