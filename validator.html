@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creator Code Validator</title>
+    <title>Fornite Focus</title>
     <link rel="stylesheet" href="https://raw.githubusercontent.com/iamludal/twemoji-awesome/master/twemoji-awesome.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('https://i.ibb.co/GQG9rDZ/4229159-screenshot2023-12-02121556.png') no-repeat center center fixed;
-            background-size: cover;
+            background: url("https://cdn2.unrealengine.com/junoepicnewsroom-inline-1920x1080-1920x1080-11ac1cc34159.jpg")
+          no-repeat center center fixed;            background-size: cover;
             color: #333; /* Dark text */
             line-height: 1.6;
             transition: margin-left 0.5s; /* Transition for side navigation */
@@ -145,19 +145,64 @@
                 font-size: 18px;
             }
         }
+
+        .navbar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .navbar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #f1f1f1;
+        }
+
+        .navbar .closebtn {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
     </style>
 </head>
 
 <body>
-    <!-- Side Navigation -->
-    <div id="mySidenav" class="sidenav">
+    <marquee class="under-construction" behavior="scroll" direction="left" loop="infinite">
+        🚧 Web in development 🚧 🚧 Web in development 🚧 🚧  Web in development 🚧
+    </marquee>
+    
+    <!-- Navbar -->
+    <div id="mySidenav" class="navbar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <!-- Home link to index.html -->
         <a href="index.html">Home</a>
-        <!-- Add your subdirectories or links here -->
-        <a href="#">Subpage 1</a>
-        <a href="#">Subpage 2</a>
-        <a href="#">Subpage 3</a>
+        <a href="#">News</a>
+        <a href="validator.html">Creator Code Validator</a>
+        <a href="stats.html">Stats</a>
+        <a href="shop.html">Shop</a>
+        <!-- Add more links as needed -->
+    </div>
+
+    <div class="news-section">
+        <h2>News</h2>
+
+        <!-- Battle Royale News Container -->
+        <div id="battle-royale-news-container"></div>
     </div>
 
     <!-- Main content -->
