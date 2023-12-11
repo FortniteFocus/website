@@ -74,22 +74,13 @@
         .logo-img {
             max-width: 100%;
             height: auto;
-            animation: waterLoading 5s linear infinite;
+            animation: waterLoading 5s linear forwards;
             clip-path: polygon(0 100%, 100% 100%, 100% 100%);
-        }
-
-        .logo-svg {
-            max-width: 100%;
-            height: auto;
-            animation: waterLoading 5s linear infinite;
         }
 
         @keyframes waterLoading {
             0% {
                 clip-path: polygon(0 100%, 100% 100%, 100% 100%);
-            }
-            50% {
-                clip-path: polygon(0 100%, 100% 0, 100% 100%);
             }
             100% {
                 clip-path: polygon(0 100%, 100% 100%, 100% 100%);
@@ -121,10 +112,6 @@
 
     <div class="logo-container">
         <img class="logo-img" src="https://i.ibb.co/VTHcfpx/Untitled-design.png" alt="Fortnite Focus Logo">
-        <!-- Add your SVG logo here if needed -->
-        <!-- <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="50" fill="#fff" />
-        </svg> -->
     </div>
 
     <script>
