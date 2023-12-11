@@ -16,6 +16,8 @@
             background-size: cover;
             color: rgba(255, 255, 255, 0.9); /* Semi-transparent white text */
             line-height: 1.6;
+            display: flex;
+            align-items: center;
             justify-content: center;
             height: 100vh; /* Full height of the viewport */
         }
@@ -109,13 +111,19 @@
         }
 
         .credits-logo {
-            width: 200px;
+            width: 300px;
             height: auto;
+            animation: spin 2s linear infinite; /* Added rotation animation */
             transition: transform 2s linear infinite; /* Added rotation animation */
         }
 
-        .credits-logo:hover {
-            transform: rotate(360deg);
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .credits-info {
@@ -137,13 +145,35 @@
         .credits-link:hover {
             color: #2980b9;
         }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .loading-spinner {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 8px solid #3498db;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
     </style>
 </head>
 
 <body>
-    <marquee class="under-construction" behavior="scroll" direction="left" loop="infinite">
-        🚧 Web in development 🚧 🚧 Web in development 🚧 🚧 Web in development 🚧
-    </marquee>
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
 
     <header>
         Fortnite Focus
@@ -188,6 +218,12 @@
     </div>
 
     <script>
+        // Hide loading overlay when the page is fully loaded
+        window.addEventListener('load', function () {
+            var loadingOverlay = document.querySelector('.loading-overlay');
+            loadingOverlay.style.display = 'none';
+        });
+
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
             document.getElementById("main").style.marginLeft = "250px";
@@ -197,26 +233,6 @@
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("main").style.marginLeft = "0";
         }
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var audio = new Audio("your-audio-file.mp3"); // Replace "your-audio-file.mp3" with your actual audio file
-            var logo = document.querySelector(".credits-logo");
-            var foxStorm1Img = document.querySelector(".credits-person:nth-child(2) img");
-            var romanImg = document.querySelector(".credits-person:nth-child(3) img");
-
-            logo.addEventListener("mouseover", function () {
-                audio.play();
-            });
-
-            foxStorm1Img.addEventListener("mouseover", function () {
-                audio.play();
-            });
-
-            romanImg.addEventListener("mouseover", function () {
-                audio.play();
-            });
-        });
     </script>
 </body>
 
