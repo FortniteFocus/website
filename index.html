@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fornite Focus</title>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/iamludal/twemoji-awesome/master/twemoji-awesome.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="icon" href="https://i.ibb.co/VTHcfpx/Untitled-design.png" type="image/png">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url("https://cdn2.unrealengine.com/junoepicnewsroom-inline-1920x1080-1920x1080-11ac1cc34159.jpg")
+          no-repeat center center fixed;            background-size: cover;
+            color: rgba(255, 255, 255, 0.9); /* Semi-transparent white text */
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(52, 152, 219, 0.8); /* Semi-transparent blue background color */
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        .navbar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .navbar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #f1f1f1;
+        }
+
+        .navbar .closebtn {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left 0.5s;
+            padding: 16px;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .logo-img {
+            max-width: 100%;
+            height: auto;
+            animation: rotate 5s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <marquee class="under-construction" behavior="scroll" direction="left" loop="infinite">
+        🚧 Web in development 🚧 🚧 Web in development 🚧 🚧  Web in development 🚧
+    </marquee>
+
+    <header>
+        Fortnite Focus
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+    </header>
+
+    <!-- Navbar -->
+    <div id="mySidenav" class="navbar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="#">News</a>
+        <a href="validator.html">Creator Code Validator</a>
+        <a href="stats.html">Stats</a>
+        <a href="shop.html">Shop</a>
+        <!-- Add more links as needed -->
+    </div>
+
+    <div class="logo-container">
+        <img class="logo-img" src="https://i.ibb.co/VTHcfpx/Untitled-design.png" alt="Fortnite Focus Logo">
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+    <script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+
+</html>
