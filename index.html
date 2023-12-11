@@ -109,12 +109,12 @@
         .credits-logo {
             width: 100px;
             height: auto;
-            margin-bottom: 20px;
-            transition: transform 0.5s ease-in-out; /* Improved animation duration */
+            margin: 20px auto; /* Center the logo */
+            transition: transform 2s linear infinite; /* Added rotation animation */
         }
 
         .credits-logo:hover {
-            transform: rotate(360deg);
+            transform: rotate(720deg); /* Increased rotation for a more dynamic effect */
         }
 
         .credits-info {
@@ -201,16 +201,19 @@
         document.addEventListener("DOMContentLoaded", function () {
             var audio = new Audio("your-audio-file.mp3"); // Replace "your-audio-file.mp3" with your actual audio file
             var logo = document.querySelector(".credits-logo");
-            var creditsPersons = document.querySelectorAll(".credits-person");
+            var foxStorm1Img = document.querySelector(".credits-person:nth-child(2) img");
+            var romanImg = document.querySelector(".credits-person:nth-child(3) img");
 
             logo.addEventListener("mouseover", function () {
                 audio.play();
             });
 
-            creditsPersons.forEach(function (person) {
-                person.addEventListener("mouseover", function () {
-                    audio.play();
-                });
+            foxStorm1Img.addEventListener("mouseover", function () {
+                audio.play();
+            });
+
+            romanImg.addEventListener("mouseover", function () {
+                audio.play();
             });
         });
     </script>
