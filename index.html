@@ -86,7 +86,7 @@
 
         .credits-person {
             display: flex;
-            flex-direction: column;
+            align-items: center;
             background-color: rgba(236, 240, 241, 0.9); /* Semi-transparent light gray background color */
             border-bottom: 1px solid rgba(221, 221, 221, 0.8); /* Semi-transparent border */
             transition: transform 0.3s ease-in-out;
@@ -95,10 +95,35 @@
         }
 
         .credits-person img {
-            max-width: 100%;
-            height: auto;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            margin-bottom: 10px;
+            margin-right: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .credits-person:hover img {
+            transform: rotate(360deg);
+        }
+
+        .credits-info {
+            flex-grow: 1;
+        }
+
+        .credits-name {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .credits-link {
+            font-size: 14px;
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .credits-link:hover {
+            color: #2980b9;
         }
     </style>
 </head>
@@ -131,15 +156,19 @@
         <!-- FoxStorm1 -->
         <div class="credits-person">
             <img src="https://i.ibb.co/dP55r50/foxstorm1.jpg" alt="FoxStorm1">
-            <h3>FoxStorm1</h3>
-            <p><a href="https://github.com/yeetov" target="_blank">GitHub</a></p>
+            <div class="credits-info">
+                <h3 class="credits-name">FoxStorm1</h3>
+                <p class="credits-link"><a href="https://github.com/yeetov" target="_blank">GitHub</a> | <a href="https://fortnite.fandom.com/wiki/Montague" target="_blank">Montague Wiki</a></p>
+            </div>
         </div>
 
         <!-- Roman -->
         <div class="credits-person">
             <img src="https://i.ibb.co/jh60rwQ/Recruit-Ramirez-Featured-Outfit-Fortnite.png" alt="Roman">
-            <h3>Roman</h3>
-            <p><a href="https://github.com/!Bau.#3841" target="_blank">GitHub</a></p>
+            <div class="credits-info">
+                <h3 class="credits-name">Roman</h3>
+                <p class="credits-link"><a href="https://github.com/!Bau.#3841" target="_blank">GitHub</a> | <a href="https://fortnite.fandom.com/wiki/Recruit_Ramirez" target="_blank">Ramirez Wiki</a></p>
+            </div>
         </div>
     </div>
 
@@ -155,7 +184,16 @@
         }
     </script>
     <script>
-        // WebSocket code...
+        document.addEventListener("DOMContentLoaded", function () {
+            var audio = new Audio("your-audio-file.mp3"); // Replace "your-audio-file.mp3" with your actual audio file
+            var creditsPersons = document.querySelectorAll(".credits-person");
+
+            creditsPersons.forEach(function (person) {
+                person.addEventListener("mouseover", function () {
+                    audio.play();
+                });
+            });
+        });
     </script>
 </body>
 
