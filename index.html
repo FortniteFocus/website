@@ -65,6 +65,41 @@
             transition: margin-left 0.5s;
             padding: 16px;
         }
+
+        .credits-section {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent light background color */
+            border: 1px solid rgba(221, 221, 221, 0.8); /* Semi-transparent border */
+            border-radius: 10px;
+            overflow: visible; /* Updated to allow overflow */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+        }
+
+        .credits-title {
+            background-color: rgba(52, 152, 219, 0.8); /* Semi-transparent blue background color */
+            color: rgba(255, 255, 255, 0.9); /* Semi-transparent white text */
+            padding: 10px;
+            margin: 0;
+            text-transform: capitalize; /* Automatically capitalize text in titles */
+        }
+
+        .credits-person {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(236, 240, 241, 0.9); /* Semi-transparent light gray background color */
+            border-bottom: 1px solid rgba(221, 221, 221, 0.8); /* Semi-transparent border */
+            transition: transform 0.3s ease-in-out;
+            margin-bottom: 10px; /* Added margin to separate credits */
+            padding: 10px;
+        }
+
+        .credits-person img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
@@ -87,6 +122,25 @@
         <a href="stats.html">Stats</a>
         <a href="shop.html">Shop</a>
         <!-- Add more links as needed -->
+    </div>
+
+    <!-- Credits Section -->
+    <div class="credits-section">
+        <h2 class="credits-title">Website Creators</h2>
+
+        <!-- FoxStorm1 -->
+        <div class="credits-person">
+            <img src="https://i.ibb.co/dP55r50/foxstorm1.jpg" alt="FoxStorm1">
+            <h3>FoxStorm1</h3>
+            <p><a href="https://github.com/yeetov" target="_blank">GitHub</a></p>
+        </div>
+
+        <!-- Roman -->
+        <div class="credits-person">
+            <img src="https://i.ibb.co/jh60rwQ/Recruit-Ramirez-Featured-Outfit-Fortnite.png" alt="Roman">
+            <h3>Roman</h3>
+            <p><a href="https://github.com/!Bau.#3841" target="_blank">GitHub</a></p>
+        </div>
     </div>
 
     <script>
