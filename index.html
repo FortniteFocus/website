@@ -166,7 +166,7 @@
 
         <!-- FoxStorm1 -->
         <div class="credits-person">
-            <img src="https://i.ibb.co/dP55r50/foxstorm1.jpg" alt="FoxStorm1">
+            <img src="https://i.ibb.co/dP55r50/foxstorm1.jpg" alt="FoxStorm1" onclick="playAudio('https://media.fortniteapi.io/audio/musicpacks/musicpack_114_islandnomad.mp3')">
             <div class="credits-info">
                 <h3 class="credits-name">FoxStorm1</h3>
                 <p class="credits-link"><a href="https://github.com/yeetov" target="_blank">GitHub</a> | <a
@@ -176,7 +176,7 @@
 
         <!-- Roman -->
         <div class="credits-person">
-            <img src="https://i.ibb.co/DfJN50B/Focus-Featured-Outfit-Fortnite.png" alt="Roman">
+            <img src="https://i.ibb.co/DfJN50B/Focus-Featured-Outfit-Fortnite.png" alt="Roman" onclick="playAudio('https://media.fortniteapi.io/audio/musicpacks/musicpack_000_stw_default.mp3')">
             <div class="credits-info">
                 <h3 class="credits-name">Roman</h3>
                 <p class="credits-link"><a href="https://github.com/Bauti0" target="_blank">GitHub</a> | <a
@@ -195,26 +195,11 @@
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("main").style.marginLeft = "0";
         }
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var audio = new Audio("https://media.fortniteapi.io/audio/musicpacks/musicpack_114_islandnomad.mp3");
-            var logo = document.querySelector(".credits-logo");
-            var foxStorm1Img = document.querySelector(".credits-person:nth-child(2) img");
-            var romanImg = document.querySelector(".credits-person:nth-child(3) img");
 
-            logo.addEventListener("mouseover", function () {
-                audio.play();
-            });
-
-            foxStorm1Img.addEventListener("mouseover", function () {
-                audio.play();
-            });
-
-            romanImg.addEventListener("mouseover", function () {
-                audio.play();
-            });
-        });
+        function playAudio(audioUrl) {
+            var audio = new Audio(audioUrl);
+            audio.play();
+        }
     </script>
 </body>
 
