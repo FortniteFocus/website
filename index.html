@@ -194,12 +194,28 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("main").style.marginLeft = "0";
+            pauseAudio();
         }
 
         function playAudio(audioUrl) {
+            pauseAudio(); // Pause any existing audio
             var audio = new Audio(audioUrl);
             audio.play();
+            // Store the audio element globally to access it for pausing
+            window.currentAudio = audio;
         }
+
+        function pauseAudio() {
+            if (window.currentAudio) {
+                window.currentAudio.pause();
+            }
+        }
+
+        document.body.addEventListener("click", function (event) {
+            if (event.target.tagName !== 'IMG' && event.target !== document.querySelector(".credits-logo")) {
+                pauseAudio();
+            }
+        });
     </script>
 </body>
 
