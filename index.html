@@ -16,7 +16,6 @@
             background-size: cover;
             color: rgba(255, 255, 255, 0.9); /* Semi-transparent white text */
             line-height: 1.6;
-            overflow: hidden; /* Prevent scroll bars during animation */
         }
 
         header {
@@ -71,25 +70,11 @@
             position: fixed;
             top: 0;
             left: 0;
-            animation: fallLogo 3s forwards;
         }
 
         .logo-img {
             max-width: 100%;
             height: auto;
-            transform-origin: top left;
-        }
-
-        @keyframes fallLogo {
-            0% {
-                transform: translate(0, 0) rotate(0);
-            }
-            50% {
-                transform: translate(50vw, 50vh) rotate(720deg);
-            }
-            100% {
-                transform: translate(0, 0) rotate(0);
-            }
         }
     </style>
 </head>
