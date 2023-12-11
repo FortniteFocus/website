@@ -16,6 +16,7 @@
             background-size: cover;
             color: rgba(255, 255, 255, 0.9); /* Semi-transparent white text */
             line-height: 1.6;
+            overflow: hidden; /* Prevent scroll bars during animation */
         }
 
         header {
@@ -67,23 +68,27 @@
         }
 
         .logo-container {
-            text-align: center;
-            margin-top: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            animation: fallLogo 3s forwards;
         }
 
-        .logo-svg {
+        .logo-img {
             max-width: 100%;
             height: auto;
-            animation: waterLoading 5s linear forwards;
-            clip-path: polygon(0 100%, 100% 100%, 100% 100%);
+            transform-origin: top left;
         }
 
-        @keyframes waterLoading {
+        @keyframes fallLogo {
             0% {
-                clip-path: polygon(0 100%, 100% 100%, 100% 100%);
+                transform: translate(0, 0) rotate(0);
+            }
+            50% {
+                transform: translate(50vw, 50vh) rotate(720deg);
             }
             100% {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                transform: translate(0, 0) rotate(0);
             }
         }
     </style>
@@ -111,10 +116,7 @@
     </div>
 
     <div class="logo-container">
-        <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <!-- Add your logo SVG content here -->
-            <circle cx="50" cy="50" r="50" fill="#fff" />
-        </svg>
+        <img class="logo-img" src="https://i.ibb.co/VTHcfpx/Untitled-design.png" alt="Fortnite Focus Logo">
     </div>
 
     <script>
