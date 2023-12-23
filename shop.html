@@ -1,323 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fornite Focus</title>
-    <link
-      rel="stylesheet"
-      href="https://raw.githubusercontent.com/iamludal/twemoji-awesome/master/twemoji-awesome.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    />
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/iamludal/twemoji-awesome/master/twemoji-awesome.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="icon" href="https://i.ibb.co/VTHcfpx/Untitled-design.png" type="image/png">
     <style>
-      body {
-        margin: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: url("https://cdn2.unrealengine.com/junoepicnewsroom-inline-1920x1080-1920x1080-11ac1cc34159.jpg")
-          no-repeat center center fixed;
-        background-size: cover;
-        color: rgba(255, 255, 255, 0.9);
-        line-height: 1.6;
-      }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: url("https://cdn2.unrealengine.com/junoepicnewsroom-inline-1920x1080-1920x1080-11ac1cc34159.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
 
-      #main {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-      }
+        #main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-      header {
-        text-align: center;
-        padding: 20px;
-        background-color: rgba(52, 152, 219, 0.8);
-        font-size: 32px;
-        font-weight: bold;
-        text-transform: capitalize;
-      }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(52, 152, 219, 0.8);
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
 
-      .shop-section {
-        background-color: rgba(255, 255, 255, 0.7);
-        border: 1px solid rgba(221, 221, 221, 0.8);
-        border-radius: 10px;
-        overflow: visible;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
-      }
+        .shop-section {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(221, 221, 221, 0.8);
+            border-radius: 10px;
+            overflow: visible;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
 
-      h2 {
-        background-color: rgba(52, 152, 219, 0.8);
-        color: rgba(255, 255, 255, 0.9);
-        padding: 10px;
-        margin: 0;
-        text-transform: capitalize;
-      }
+        h2, h3 {
+            padding: 10px;
+            margin: 0;
+            text-transform: capitalize;
+        }
 
-      h3 {
-        background-color: rgba(219, 52, 52, 0.8);
-        color: rgba(0, 0, 0, 0.9);
-        padding: 10px;
-        margin: 0;
-        text-transform: capitalize;
-      }
+        h2 {
+            background-color: rgba(52, 152, 219, 0.8);
+            color: rgba(255, 255, 255, 0.9);
+        }
 
-      .category-container {
-        display: flex;
-        flex-direction: column;
-      }
+        h3 {
+            background-color: rgba(219, 52, 52, 0.8);
+            color: rgba(0, 0, 0, 0.9);
+        }
 
-      .shop-article {
-        width: 100%;
-        margin: 10px 0;
-        display: flex;
-        flex-direction: row; /* Ajuste para que los elementos estén uno al lado del otro */
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background-color: rgba(236, 240, 241, 0.9);
-      }
+        .category-container {
+            display: flex;
+            flex-direction: column;
+        }
 
-      .shop-article:hover {
-        transform: scale(1.05);
-      }
+        .shop-article {
+            width: 100%;
+            margin: 10px 0;
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(236, 240, 241, 0.9);
+            transition: transform 0.3s ease-in-out;
+        }
 
-      .shop-article h2 {
-        flex-grow: 1;
-        font-size: 24px;
-        margin: 10px;
-        color: rgba(51, 51, 51, 0.9);
-        text-transform: capitalize;
-      }
+        .shop-article:hover {
+            transform: scale(1.05);
+        }
 
-      .shop-article .description-container {
-        padding: 10px;
-        flex-grow: 1;
-        color: rgba(51, 51, 51, 0.9);
-        font-family: "Roboto", sans-serif;
-      }
+        .shop-article h2 {
+            flex-grow: 1;
+            font-size: 24px;
+            margin: 10px;
+            color: rgba(51, 51, 51, 0.9);
+            text-transform: capitalize;
+        }
 
-      .shop-article img {
-        width: 30%;
-        height: auto;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-      }
+        .shop-article .description-container {
+            padding: 10px;
+            flex-grow: 1;
+            color: rgba(51, 51, 51, 0.9);
+            font-family: "Roboto", sans-serif;
+        }
 
-      /* Side Navigation */
-      .sidenav {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-      }
+        .shop-article img {
+            width: 30%;
+            height: auto;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
 
-      .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 20px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-      }
-
-      .sidenav a:hover {
-        color: #f1f1f1;
-      }
-
-      .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        left: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-      }
-
-      #main {
-        transition: margin-left 0.5s;
-        padding: 16px;
-      }
-
-      @media screen and (max-height: 450px) {
+        /* Side Navigation */
         .sidenav {
-          padding-top: 15px;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
         }
 
         .sidenav a {
-          font-size: 18px;
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
         }
-      }
 
-      .navbar {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-      }
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
 
-      .navbar a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 20px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-      }
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
 
-      .navbar a:hover {
-        color: #f1f1f1;
-      }
+        #main {
+            transition: margin-left 0.5s;
+            padding: 16px;
+        }
 
-      .navbar .closebtn {
-        position: absolute;
-        top: 0;
-        left: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-      }
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        .navbar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .navbar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #f1f1f1;
+        }
+
+        .navbar .closebtn {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
-    <marquee
-      class="under-construction"
-      behavior="scroll"
-      direction="left"
-      loop="infinite"
-    >
-      🚧 Web in development 🚧 🚧 Web in development 🚧 🚧 Web in development 🚧
-    </marquee>
+<body>
+<marquee class="under-construction" behavior="scroll" direction="left" loop="infinite">
+    🚧 Web in development 🚧 🚧 Web in development 🚧 🚧 Web in development 🚧
+</marquee>
 
-    <header>
-      Fortnite Focus
-      <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
-        >&#9776;
-      </span>
-    </header>
+<header>
+    Fortnite Focus
+    <span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span>
+</header>
 
-    <!-- Navbar -->
-    <div id="mySidenav" class="navbar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
-      <a href="index.html">Home</a>
-      <a href="news.html">News</a>
-      <a href="validator.html">Creator Code Validator</a>
-      <a href="stats.html">Stats</a>
-      <a href="shop.html">Shop</a>
-      <!-- Add more links as needed -->
-    </div>
+<!-- Navbar -->
+<div id="mySidenav" class="navbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="validator.html">Creator Code Validator</a>
+    <a href="stats.html">Stats</a>
+    <a href="shop.html">Shop</a>
+    <!-- Add more links as needed -->
+</div>
 
-    <div id="main">
-      <div class="shop-section">
+<div id="main">
+    <div class="shop-section">
         <h2>Shop</h2>
         <div id="battle-royale-shop-container" class="category-container"></div>
-      </div>
     </div>
-    <script>
-      function openNav() {
+</div>
+<script>
+    function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("main").style.marginLeft = "250px";
-      }
+    }
 
-      function closeNav() {
+    function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";
-      }
-    </script>
-    <script type="module">
-      fetch("https://fortnite-api.com/v2/shop/br?language=en")
-        .then((response) => response.json())
-        .then((data) => {
-          let datos = [];
-          function obtenerPrecioPorSkin(nombreSkin) {
-            for (let a = 0; a < datos.length; a++) {
-              if (datos[a].skin === nombreSkin) {
-                return datos[a].precio;
-              }
+    }
+</script>
+<script type="module">
+    fetch("https://fortnite-api.com/v2/shop/br?language=en")
+        .then(response => response.json())
+        .then(data => {
+            let datos = [];
+
+            function obtenerPrecioPorSkin(nombreSkin) {
+                for (let a = 0; a < datos.length; a++) {
+                    if (datos[a].skin === nombreSkin) {
+                        return datos[a].precio;
+                    }
+                }
+                return "Skin not found";
             }
-            return "Skin not found";
-          }
-          const battleRoyaleShopContainer = document.getElementById(
-            "battle-royale-shop-container"
-          );
 
-          if (data.status === 200) {
-            const shopData = data.data.featured.entries;
-            const articlesByCategory = {};
-            const uniqueCategories = [];
-            shopData.forEach((entry) => {
-              if (entry.bundle === null) {
-                return;
-              }
-              entry.items.forEach((item) => {
-                if (!datos.includes({"skin": item.name})) {
-                  datos.push({
-                    skin: item.name,
-                    precio: entry.finalPrice,
-                  });
-                } else {
-                  return;
-                }
+            const battleRoyaleShopContainer = document.getElementById("battle-royale-shop-container");
 
-                const categoryName = entry.layout && entry.layout.name;
-                if (!articlesByCategory[categoryName]) {
-                  articlesByCategory[categoryName] = [];
-                  uniqueCategories.push(categoryName);
-                }
-                articlesByCategory[categoryName].push(item);
-              });
-            });
+            if (data.status === 200) {
+                const shopData = data.data.featured.entries;
+                const articlesByCategory = {};
+                const uniqueCategories = [];
+                shopData.forEach(entry => {
+                    if (entry.bundle === null) {
+                        return;
+                    }
+                    entry.items.forEach(item => {
+                        if (!datos.find(element => element.skin === item.name)) {
+                            datos.push({
+                                skin: item.name,
+                                precio: entry.finalPrice,
+                            });
+                        } else {
+                            return;
+                        }
 
-            uniqueCategories.sort();
-            uniqueCategories.forEach((categoryName) => {
-              const categoryElement = document.createElement("div");
-              categoryElement.innerHTML = `
-              <div class="category-container">
-                <br></br>
-                <h3>${categoryName}</h3>
-              <div>
-              `;
-              battleRoyaleShopContainer.appendChild(categoryElement);
+                        const categoryName = entry.layout && entry.layout.name;
+                        if (!articlesByCategory[categoryName]) {
+                            articlesByCategory[categoryName] = [];
+                            uniqueCategories.push(categoryName);
+                        }
+                        articlesByCategory[categoryName].push(item);
+                    });
+                });
 
-              articlesByCategory[categoryName].forEach((item) => {
-                const articleElement = document.createElement("div");
-                articleElement.className = "shop-article";
-                articleElement.innerHTML = `
-                        <h2>${item.name}</h2>
-                        <div class="description-container">
-                            <p>${item.description}</p>
-                            <p style="display: flex; align-items: center;"><img src="https://fortnite-api.com/images/vbuck.png" style="width: 38px; height: auto;">${obtenerPrecioPorSkin(
-                              item.name
-                            )}</p>
-                        </div>
-                        <div class="image-container">
-                            <img src="${item.images.icon}" alt="Fortnite Skin">
-                        </div>
-                    `;
-                categoryElement.appendChild(articleElement);
-              });
-            });
-          }
+                uniqueCategories.sort();
+                uniqueCategories.forEach(categoryName => {
+                    const categoryElement = document.createElement("div");
+                    categoryElement.innerHTML = `
+                        <div class="category-container">
+                            <br></br>
+                            <h3>${categoryName}</h3>
+                        <div>
+                        `;
+                    battleRoyaleShopContainer.appendChild(categoryElement);
+
+                    articlesByCategory[categoryName].forEach(item => {
+                        const articleElement = document.createElement("div");
+                        articleElement.className = "shop-article";
+                        articleElement.innerHTML = `
+                                <h2>${item.name}</h2>
+                                <div class="description-container">
+                                    <p>${item.description}</p>
+                                    <p style="display: flex; align-items: center;"><img src="https://fortnite-api.com/images/vbuck.png" style="width: 38px; height: auto;">${obtenerPrecioPorSkin(
+                            item.name
+                        )}</p>
+                                </div>
+                                <div class="image-container">
+                                    <img src="${item.images.icon}" alt="Fortnite Skin">
+                                </div>
+                            `;
+                        categoryElement.appendChild(articleElement);
+                    });
+                });
+            }
         })
-        .catch((error) => {
-          console.error("Error fetching Fortnite shop:", error);
+        .catch(error => {
+            console.error("Error fetching Fortnite shop:", error);
         });
-    </script>
-  </body>
+</script>
+</body>
 </html>
-1
