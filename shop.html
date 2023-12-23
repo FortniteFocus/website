@@ -58,19 +58,24 @@
         }
 
         .category-container {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
 
         .shop-article {
             width: 100%;
-            margin: 10px 0;
-            display: flex;
+            display: grid;
+            grid-template-areas:
+                "image"
+                "name"
+                "info";
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: rgba(236, 240, 241, 0.9);
             transition: transform 0.3s ease-in-out;
+            margin-bottom: 20px;
         }
 
         .shop-article:hover {
@@ -78,22 +83,29 @@
         }
 
         .shop-article h2 {
-            flex-grow: 1;
+            grid-area: name;
             font-size: 24px;
             margin: 10px;
             color: rgba(51, 51, 51, 0.9);
             text-transform: capitalize;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .shop-article .description-container {
+            grid-area: info;
             padding: 10px;
-            flex-grow: 1;
             color: rgba(51, 51, 51, 0.9);
             font-family: "Roboto", sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .shop-article img {
-            width: 30%;
+            grid-area: image;
+            width: 100%;
             height: auto;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
@@ -282,15 +294,13 @@
                         const articleElement = document.createElement("div");
                         articleElement.className = "shop-article";
                         articleElement.innerHTML = `
+                                <img src="${item.images.icon}" alt="Fortnite Skin">
                                 <h2>${item.name}</h2>
                                 <div class="description-container">
                                     <p>${item.description}</p>
                                     <p style="display: flex; align-items: center;"><img src="https://fortnite-api.com/images/vbuck.png" style="width: 38px; height: auto;">${obtenerPrecioPorSkin(
                             item.name
                         )}</p>
-                                </div>
-                                <div class="image-container">
-                                    <img src="${item.images.icon}" alt="Fortnite Skin">
                                 </div>
                             `;
                         categoryElement.appendChild(articleElement);
