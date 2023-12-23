@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite Focus - Map</title>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/iamludal/twemoji-awesome/master/twemoji-awesome.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="icon" href="https://i.ibb.co/VTHcfpx/Untitled-design.png" type="image/png">
+    <style>
+        /* Add your styles for the map here */
+        #fortnite-map {
+            width: 100%;
+            height: 100vh;
+            background-image: url("https://fortnite-api.com/images/map_en.png");
+            background-size: cover;
+            position: relative;
+        }
+
+        .poi-marker {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fortnite-map"></div>
+
+    <script>
+        // Extracted map data from the provided JSON
+        const mapData = {
+            // ... (The provided JSON data)
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Create map container
+            const mapContainer = document.getElementById("fortnite-map");
+
+            // Set background image
+            mapContainer.style.backgroundImage = `url(${mapData.data.images.pois})`;
+
+            // Add markers for points of interest (POIs)
+            mapData.data.pois.forEach(poi => {
+                const marker = document.createElement("div");
+                marker.className = "poi-marker";
+                marker.style.left = `${poi.location.x / 2}px`; // Adjust for scale
+                marker.style.top = `${poi.location.y / 2}px`;  // Adjust for scale
+                marker.title = poi.name || "Unnamed POI";
+                mapContainer.appendChild(marker);
+            });
+        });
+    </script>
+</body>
+
+</html>
