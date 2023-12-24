@@ -377,17 +377,32 @@
         });
     });
 
-    function getBackgroundImage(rarity) {
-        switch (rarity) {
-            case 'Gaming Legends Series':
-                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/GamingLegends.gif?raw=true';
-            case 'Icon Series':
-                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/IconSeries.gif?raw=true';
-            // Add more cases for other rarities or series
-            default:
-                return 'https://example.com/default-background.jpg'; // Default background image
-        }
+function getBackgroundImage(rarity) {
+    switch (rarity) {
+        case 'Gaming Legends Series':
+            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/GamingLegends.gif?raw=true';
+        case 'Icon Series':
+            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/IconSeries.gif?raw=true';
+        case 'DC Series':
+            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/DCSeries.gif?raw=true';
+        case 'Dark Series':
+            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/DarkSeries.gif?raw=true';
+        case 'Frozen Series':
+            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/FrozenSeries.png?raw=true';
+        case 'Lava Series':
+            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/LavaSeries.gif?raw=true';
+        case 'Marvel Series':
+            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/MarvelSeries.gif?raw=true';
+        case 'Shadow Series':
+            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/ShadowSeries.png?raw=true';
+        case 'Slurp Series':
+            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/SlurpSeries.png?raw=true';
+        case 'Star Wars Series':
+            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/StarWarsSeries.gif?raw=true';
+        default:
+            return 'https://example.com/default-background.jpg'; // Default background image
     }
+}
 
     fetch("https://fortnite-api.com/v2/cosmetics/br")
         .then(response => response.json())
