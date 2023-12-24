@@ -81,6 +81,7 @@
             transition: transform 0.3s ease-in-out;
             margin-bottom: 20px;
             cursor: pointer;
+            position: relative; /* Added position relative */
         }
 
         .shop-article:hover {
@@ -120,6 +121,19 @@
             border-top-right-radius: 10px;
             max-height: 200px; /* Limit the height of the image */
             object-fit: cover;
+        }
+
+        .shop-article::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            z-index: -1;
         }
 
         .search-bar {
@@ -305,94 +319,116 @@
         </div>
     </div>
 
-    <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        }
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
 
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
 
-        function closeModal() {
-            document.getElementById("cosmetic-modal").style.display = "none";
-        }
+    function closeModal() {
+        document.getElementById("cosmetic-modal").style.display = "none";
+    }
 
-        function formatDate(dateString) {
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const date = new Date(dateString);
-            return date.toLocaleDateString(undefined, options);
-        }
+    function formatDate(dateString) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const date = new Date(dateString);
+        return date.toLocaleDateString(undefined, options);
+    }
 
-        function openModal(cosmetic) {
-            document.getElementById("modal-image").src = cosmetic.images.icon;
-            document.getElementById("modal-name").textContent = cosmetic.name;
-            document.getElementById("modal-description").textContent = cosmetic.description;
+    function openModal(cosmetic) {
+        document.getElementById("modal-image").src = cosmetic.images.icon;
+        document.getElementById("modal-name").textContent = cosmetic.name;
+        document.getElementById("modal-description").textContent = cosmetic.description;
 
-            // Additional information
-            const modalInfo = document.getElementById("modal-info");
-            modalInfo.innerHTML = `
-                <p>Rarity: ${cosmetic.rarity.displayValue}</p>
-                <p>Type: ${cosmetic.type.displayValue}</p>
-                <p>Set: ${cosmetic.set.text}</p>
-                <p>Release Date: ${formatDate(cosmetic.added)}</p>
-                <!-- Add more details as needed -->
-            `;
+        // Additional information
+        const modalInfo = document.getElementById("modal-info");
+        modalInfo.innerHTML = `
+            <p>Rarity: ${cosmetic.rarity.displayValue}</p>
+            <p>Type: ${cosmetic.type.displayValue}</p>
+            <p>Set: ${cosmetic.set.text}</p>
+            <p>Release Date: ${formatDate(cosmetic.added)}</p>
+            <!-- Add more details as needed -->
+        `;
 
-            document.getElementById("cosmetic-modal").style.display = "block";
-        }
+        document.getElementById("cosmetic-modal").style.display = "block";
+    }
 
-        const loadingContainer = document.getElementById("loadingContainer");
+    const loadingContainer = document.getElementById("loadingContainer");
 
-        const searchBar = document.getElementById("searchBar");
-        searchBar.addEventListener("input", () => {
-            const searchValue = searchBar.value.toLowerCase();
+    const searchBar = document.getElementById("searchBar");
+    searchBar.addEventListener("input", () => {
+        const searchValue = searchBar.value.toLowerCase();
 
-            const cosmetics = document.querySelectorAll(".shop-article");
+        const cosmetics = document.querySelectorAll(".shop-article");
 
-            cosmetics.forEach(cosmetic => {
-                const name = cosmetic.querySelector("h2").textContent.toLowerCase();
+        cosmetics.forEach(cosmetic => {
+            const name = cosmetic.querySelector("h2").textContent.toLowerCase();
 
-                if (name.includes(searchValue)) {
-                    cosmetic.style.display = "block";
-                } else {
-                    cosmetic.style.display = "none";
-                }
-            });
+            if (name.includes(searchValue)) {
+                cosmetic.style.display = "block";
+            } else {
+                cosmetic.style.display = "none";
+            }
         });
+    });
 
-        fetch("https://fortnite-api.com/v2/cosmetics/br")
-            .then(response => response.json())
-            .then(data => {
-                loadingContainer.style.display = "none"; // Hide loading spinner
-                if (data.status === 200) {
-                    const cosmeticsData = data.data;
-                    const battleRoyaleShopContainer = document.getElementById("battle-royale-shop-container");
+    function getBackgroundImage(rarity) {
+        switch (rarity) {
+            case 'Gaming Legends Series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/GamingLegends.gif?raw=true';
+            case 'Icon Series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/IconSeries.gif?raw=true';
+            // Add more cases for other rarities or series
+            default:
+                return 'https://example.com/default-background.jpg'; // Default background image
+        }
+    }
 
-                    cosmeticsData.forEach(cosmetic => {
-                        const cosmeticElement = document.createElement("div");
-                        cosmeticElement.className = "shop-article";
-                        cosmeticElement.innerHTML = `
-                            <img src="${cosmetic.images.icon}" alt="Fortnite Cosmetic">
-                            <h2>${cosmetic.name}</h2>
-                            <div class="description-container">
-                                <p>${cosmetic.description}</p>
-                            </div>
-                        `;
-                        battleRoyaleShopContainer.appendChild(cosmeticElement);
+    fetch("https://fortnite-api.com/v2/cosmetics/br")
+        .then(response => response.json())
+        .then(data => {
+            loadingContainer.style.display = "none"; // Hide loading spinner
+            if (data.status === 200) {
+                const cosmeticsData = data.data;
+                const battleRoyaleShopContainer = document.getElementById("battle-royale-shop-container");
 
-                        cosmeticElement.addEventListener("click", () => {
-                            openModal(cosmetic);
-                        });
+                cosmeticsData.forEach(cosmetic => {
+                    const cosmeticElement = document.createElement("div");
+                    cosmeticElement.className = "shop-article";
+                    cosmeticElement.innerHTML = `
+                        <img src="${cosmetic.images.icon}" alt="Fortnite Cosmetic">
+                        <h2>${cosmetic.name}</h2>
+                        <div class="description-container">
+                            <p>${cosmetic.description}</p>
+                        </div>
+                    `;
+
+                    // Set the background image based on rarity
+                    cosmeticElement.style.backgroundImage = `url(${getBackgroundImage(cosmetic.rarity.displayValue)})`;
+
+                    battleRoyaleShopContainer.appendChild(cosmeticElement);
+
+                    cosmeticElement.addEventListener("click", () => {
+                        openModal(cosmetic);
                     });
-                }
-            })
-            .catch(error => {
-                console.error("Error fetching Fortnite cosmetics:", error);
-            });
-    </script>
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching Fortnite cosmetics:", error);
+        });
+</script>
+
+</body>
+
+</html>
+
+
 </body>
 
 </html>
