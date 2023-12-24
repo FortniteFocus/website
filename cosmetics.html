@@ -353,6 +353,10 @@
             <p>Type: ${cosmetic.type.displayValue}</p>
             <p>Set: ${cosmetic.set.text}</p>
             <p>Release Date: ${formatDate(cosmetic.added)}</p>
+            <audio controls>
+                <source src="https://media.fortniteapi.io/audio/musicpacks/${cosmetic.id.toLowerCase()}.mp3" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
             <!-- Add more details as needed -->
         `;
 
@@ -378,32 +382,34 @@
         });
     });
 
-function getBackgroundImage(rarity) {
-    switch (rarity) {
-        case 'Gaming Legends Series':
-            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/GamingLegends.gif?raw=true';
-        case 'Icon Series':
-            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/IconSeries.gif?raw=true';
-        case 'DC Series':
-            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/DCSeries.gif?raw=true';
-        case 'Dark Series':
-            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/DarkSeries.gif?raw=true';
-        case 'Frozen Series':
-            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/FrozenSeries.png?raw=true';
-        case 'Lava Series':
-            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/LavaSeries.gif?raw=true';
-        case 'Marvel Series':
-            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/MarvelSeries.gif?raw=true';
-        case 'Shadow Series':
-            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/ShadowSeries.png?raw=true';
-        case 'Slurp Series':
-            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/SlurpSeries.png?raw=true';
-        case 'Star Wars Series':
-            return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/StarWarsSeries.gif?raw=true';
-        default:
-            return 'https://example.com/default-background.jpg'; // Default background image
+    function getBackgroundImage(rarity) {
+        const lowercaseRarity = rarity.toLowerCase();
+
+        switch (lowercaseRarity) {
+            case 'gaming legends series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/GamingLegends.gif?raw=true';
+            case 'icon series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/IconSeries.gif?raw=true';
+            case 'dc series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/DCSeries.gif?raw=true';
+            case 'dark series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/DarkSeries.gif?raw=true';
+            case 'frozen series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/FrozenSeries.png?raw=true';
+            case 'lava series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/LavaSeries.gif?raw=true';
+            case 'marvel series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/MarvelSeries.gif?raw=true';
+            case 'shadow series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/ShadowSeries.png?raw=true';
+            case 'slurp series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/SlurpSeries.png?raw=true';
+            case 'star wars series':
+                return 'https://github.com/FortniteFocus/website/blob/main/assets/rarities/StarWarsSeries.gif?raw=true';
+            default:
+                return 'https://example.com/default-background.jpg'; // Default background image
+        }
     }
-}
 
     fetch("https://fortnite-api.com/v2/cosmetics/br")
         .then(response => response.json())
@@ -439,6 +445,8 @@ function getBackgroundImage(rarity) {
             console.error("Error fetching Fortnite cosmetics:", error);
         });
 </script>
+
+
 
 </body>
 
