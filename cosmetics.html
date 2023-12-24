@@ -96,6 +96,7 @@
             grid-area: name;
             font-size: 24px;
             margin: 10px;
+            padding-top: 0; /* Remove padding-top to ensure better alignment */
             color: rgba(255, 255, 255, 0.9);
             text-transform: capitalize;
             white-space: nowrap;
@@ -116,11 +117,11 @@
         .shop-article img {
             grid-area: image;
             width: 100%;
-            height: auto;
+            height: 256px; /* Set a fixed height */
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             max-height: 200px; /* Limit the height of the image */
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .shop-article::before {
